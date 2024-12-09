@@ -15,6 +15,7 @@ sudo usermod -aG docker ec2-user
 sudo chmod 666 /var/run/docker.sock
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 systemctl start docker
+
 # Create docker-compose.yml file
 cat > /home/ec2-user/docker-compose.yml <<EOL
 version: '3.3'
@@ -55,3 +56,17 @@ docker-compose up -d
 
 # Optional: Check if containers are running
 docker ps
+
+# Install Terraform
+TERRAFORM_VERSION="1.5.4"  # Change the version as needed
+curl -LO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+
+# Verify Terraform installation
+terraform --version
+
+# Optional: Initialize Terraform (If you have a Terraform configuration to apply)
+# cd /path/to/your/terraform/directory
+# terraform init
+# terraform apply --auto-approve
