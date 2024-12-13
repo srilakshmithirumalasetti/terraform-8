@@ -65,6 +65,7 @@ sudo mv terraform /usr/local/bin/
 
 # Verify Terraform installation
 terraform --version
+yum install git -y
 
 # Optional: Initialize Terraform (If you have a Terraform configuration to apply)
 # cd /path/to/your/terraform/directory
