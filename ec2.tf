@@ -6,10 +6,10 @@ resource "aws_instance" "my_instance" {
   ami                   ="ami-0166fe664262f664c"
   instance_type          = "t2.micro"
   count                  = 1
-  key_name               = "pinku"
+  key_name               = "prasanna"
   associate_public_ip_address = true
   user_data              = file("data.sh")
-  subnet_id = "subnet-04e7d31710d9a5178"
+  subnet_id = "subnet-0900b876bc5541b5d"
   tags = {
     Name = "My public Instance 1"
   }
